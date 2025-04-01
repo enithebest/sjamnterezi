@@ -1,128 +1,77 @@
-<h1>Create New Event</h1>
-
 <script>
     let { data } = $props();
 </script>
 
-<form method="POST" action="?/createEvent">
+<h1 class="text-center text-4xl font-bold text-gray-900 my-6">Create New Event</h1>
+
+<form method="POST" action="?/createEvent" class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
     <!-- Title -->
-    <label for="title">Title</label>
-    <input type="text" id="title" name="title" placeholder="Enter the event title" required />
+    <div>
+        <label for="title" class="block font-semibold text-gray-700">Title</label>
+        <input type="text" id="title" name="title" placeholder="Enter the event title" required 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+    </div>
 
     <!-- Description -->
-    <label for="description">Description</label>
-    <textarea id="description" name="description" placeholder="Enter the event description" rows="4" required></textarea>
+    <div>
+        <label for="description" class="block font-semibold text-gray-700">Description</label>
+        <textarea id="description" name="description" placeholder="Enter the event description" rows="4" required 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+    </div>
 
     <!-- URL -->
-    <label for="url">URL</label>
-    <input type="url" id="url" name="url" placeholder="Enter the event URL" />
+    <div>
+        <label for="url" class="block font-semibold text-gray-700">URL</label>
+        <input type="url" id="url" name="url" placeholder="Enter the event URL" 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+    </div>
 
     <!-- Dates -->
-    <label for="startDate">Start Date</label>
-    <input type="date" id="startDate" name="startDate" required />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+            <label for="startDate" class="block font-semibold text-gray-700">Start Date</label>
+            <input type="date" id="startDate" name="startDate" required 
+                class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+        </div>
 
-    <label for="endDate">End Date</label>
-    <input type="date" id="endDate" name="endDate" />
+        <div>
+            <label for="endDate" class="block font-semibold text-gray-700">End Date</label>
+            <input type="date" id="endDate" name="endDate" 
+                class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+        </div>
+    </div>
 
-    <!-- Times -->
-    <label for="startTime">Start Time</label>
-    <input type="time" id="startTime" name="startTime" />
+    <!-- Time -->
+    <div>
+        <label for="startTime" class="block font-semibold text-gray-700">Start Time</label>
+        <input type="time" id="startTime" name="startTime" 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+    </div>
 
     <!-- Location -->
-    <label for="location">Location</label>
-    <select id="location" name="locationId" required>
-        {#each data.locations as location (location.id)}
-            <option value={location.id}>{location.name}</option>
-        {/each}
-    </select>
+    <div>
+        <label for="location" class="block font-semibold text-gray-700">Location</label>
+        <select id="location" name="locationId" required 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            {#each data.locations as location (location.id)}
+                <option value={location.id}>{location.name}</option>
+            {/each}
+        </select>
+    </div>
 
     <!-- Category -->
-    <label for="category">Category</label>
-    <select id="category" name="categoryId" required>
-        {#each data.categories as category (category.id)}
-            <option value={category.id}>{category.title}</option>
-        {/each}
-    </select>
+    <div>
+        <label for="category" class="block font-semibold text-gray-700">Category</label>
+        <select id="category" name="categoryId" required 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none">
+            {#each data.categories as category (category.id)}
+                <option value={category.id}>{category.title}</option>
+            {/each}
+        </select>
+    </div>
 
     <!-- Submit Button -->
-    <button type="submit" class="submit-btn">Create Event</button>
+    <button type="submit" class="w-full mt-4 px-4 py-2 bg-blue-600 text-white font-semibold rounded-md shadow-md transition hover:bg-blue-700 hover:shadow-lg">
+        Create Event
+    </button>
 </form>
-
-<style>
-    /* General Styles */
-    * {
-        font-family: 'Arial', sans-serif;
-        background-color: #f9fafc;
-        color: #333;
-        margin: 0;
-        padding: 0;
-    }
-
-    h1 {
-        text-align: center;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        font-size: 2rem;
-        color: #2c3e50;
-    }
-
-    /* Form Styles */
-    form {
-        display: flex;
-        flex-direction: column;
-        max-width: 600px;
-        margin: 0 auto;
-        padding: 20px;
-        background: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    label {
-        margin-top: 15px;
-        font-weight: bold;
-        color: #2c3e50;
-    }
-
-    input, textarea, select {
-        margin-top: 5px;
-        padding: 10px;
-        font-size: 1rem;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        outline: none;
-        width: 100%;
-    }
-
-    input:focus, textarea:focus, select:focus {
-        border-color: #3498db;
-        box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-    }
-
-    textarea {
-        resize: none;
-    }
-
-    .submit-btn {
-        margin-top: 20px;
-        padding: 10px 15px;
-        background-color: #3498db;
-        color: white;
-        font-size: 1rem;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .submit-btn:hover {
-        background-color: #2980b9;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 768px) {
-        form {
-            padding: 15px;
-        }
-    }
-</style>

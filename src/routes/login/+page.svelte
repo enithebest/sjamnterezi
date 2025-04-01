@@ -4,111 +4,30 @@
     export let form;
 </script>
 
-<div class="container">
-    <form action="?/login" method="POST" use:enhance class="login-form">
-        <h1 class="form-title">Login</h1>
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+    <form action="?/login" method="POST" use:enhance 
+        class="w-full max-w-md p-6 bg-white rounded-lg shadow-md flex flex-col gap-4">
+        
+        <h1 class="text-xl font-bold text-center text-gray-700">Login</h1>
 
-        <div class="form-group">
-            <label for="email" class="form-label">E-Mail</label>
-            <input
-                type="email"
-                name="email"
-                id="email"
-                class="form-input"
-                required
+        <div class="flex flex-col gap-2">
+            <label for="email" class="text-sm font-semibold text-gray-700">E-Mail</label>
+            <input type="email" name="email" id="email" required 
                 placeholder="Enter your email"
-            />
+                class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
         </div>
 
-        <div class="form-group">
-            <label for="password" class="form-label">Password</label>
-            <input
-                type="password"
-                name="password"
-                id="password"
-                class="form-input"
-                required
+        <div class="flex flex-col gap-2">
+            <label for="password" class="text-sm font-semibold text-gray-700">Password</label>
+            <input type="password" name="password" id="password" required 
                 placeholder="Enter your password"
-            />
+                class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
         </div>
 
-        <button type="submit" class="btn">Login</button>
+        <button type="submit" class="py-2 px-4 text-white bg-blue-500 rounded-md hover:bg-blue-600 transition duration-300 font-bold">Login</button>
 
         {#if form}
             <Warning message={form.message} />
         {/if}
     </form>
 </div>
-
-<style>
-    /* Container styles */
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background-color: #f8f9fa; /* Light gray background */
-    }
-
-    /* Form styles */
-    .login-form {
-        width: 100%;
-        max-width: 400px;
-        padding: 20px;
-        background-color: #ffffff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .form-title {
-        font-size: 24px;
-        margin-bottom: 10px;
-        text-align: center;
-        color: #333;
-    }
-
-    .form-group {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .form-label {
-        font-size: 14px;
-        color: #555;
-    }
-
-    .form-input {
-        height: 40px;
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        transition: border-color 0.3s ease;
-    }
-
-    .form-input:focus {
-        border-color: #007bff;
-        outline: none;
-        box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
-    }
-
-    .btn {
-        height: 40px;
-        background-color: #007bff;
-        color: #fff;
-        font-size: 16px;
-        font-weight: bold;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    .btn:hover {
-        background-color: #0056b3;
-    }
-</style>

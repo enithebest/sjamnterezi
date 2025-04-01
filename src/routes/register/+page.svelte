@@ -4,101 +4,28 @@
     export let form;
 </script>
 
-<div>
-    <form action="?/register" method="POST" use:enhance>
-        <h1>Register</h1>
+<div class="flex justify-center items-center min-h-screen bg-gradient-to-r from-blue-400 to-cyan-400">
+    <form action="?/register" method="POST" use:enhance 
+        class="flex flex-col gap-4 w-full max-w-md bg-white p-6 rounded-lg shadow-md">
+        
+        <h1 class="text-xl font-bold text-center text-blue-500">Register</h1>
 
-        <label for="email">E-Mail</label>
-        <input type="text" name="email" id="email" required />
+        <label for="email" class="text-sm font-semibold text-gray-700">E-Mail</label>
+        <input type="text" name="email" id="email" required 
+            class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
 
-        <label for="username">Username</label>
-        <input type="text" name="username" id="username" required />
+        <label for="username" class="text-sm font-semibold text-gray-700">Username</label>
+        <input type="text" name="username" id="username" required 
+            class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" required />
+        <label for="password" class="text-sm font-semibold text-gray-700">Password</label>
+        <input type="password" name="password" id="password" required 
+            class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
 
-        <button type="submit">Register</button>
+        <button type="submit" class="py-2 px-4 text-white bg-blue-500 rounded-md hover:bg-cyan-500 transition duration-300 font-bold">Register</button>
 
         {#if form}
             <Warning message={form.message} />
         {/if}
     </form>
 </div>
-
-<style>
-    * {
-        margin: 0;
-        font-family: 'Arial', sans-serif;
-        background-color: #f4f4f9;
-        color: #333;
-    }
-
-    div {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        background: linear-gradient(135deg, #4facfe, #00f2fe);
-    }
-
-    form {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-        max-width: 400px;
-        background: #fff;
-        padding: 30px 20px;
-        border-radius: 10px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-        font-size: 24px;
-        text-align: center;
-        color: #4facfe;
-        margin-bottom: 20px;
-    }
-
-    label {
-        font-size: 14px;
-        font-weight: 600;
-        color: #555;
-    }
-
-    input {
-        padding: 10px;
-        font-size: 14px;
-        border: 1px solid #ddd;
-        border-radius: 5px;
-        outline: none;
-        transition: border-color 0.3s;
-    }
-
-    input:focus {
-        border-color: #4facfe;
-        box-shadow: 0 0 3px rgba(79, 172, 254, 0.5);
-    }
-
-    button {
-        padding: 12px 20px;
-        font-size: 16px;
-        font-weight: bold;
-        color: #fff;
-        background-color: #4facfe;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    button:hover {
-        background-color: #00bcd4;
-    }
-
-    button:active {
-        transform: scale(0.98);
-    }
-
-
-</style>
