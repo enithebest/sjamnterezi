@@ -7,7 +7,7 @@ export async function load({locals}) {
 		redirect(302,'/login');
 	}
 	let connection = await createConnection();
-	let [rows] = await connection.execute('SELECT e.id, e.title, l.name AS locationName FROM events as e LEFT JOIN locations as l ON e.location_id = l.id;');
+	let [rows] = await connection.execute('SELECT e.id,e.image, e.title, l.name AS locationName FROM events as e LEFT JOIN locations as l ON e.location_id = l.id;');
 	let [rows2] = await connection.execute('SELECT e.id,  e.title,   c.title AS categoryTitle FROM events AS e LEFT JOIN category AS c ON  e.category_id = c.id;')
 	return {
 		events: rows,

@@ -4,11 +4,16 @@
 
 <h1 class="text-center text-4xl font-bold text-gray-900 my-6">Create New Event</h1>
 
-<form method="POST" action="?/createEvent" class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md space-y-4">
+<form method="POST" action="?/createEvent" class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md space-y-4" enctype="multipart/form-data">
     <!-- Title -->
     <div>
         <label for="title" class="block font-semibold text-gray-700">Title</label>
         <input type="text" id="title" name="title" placeholder="Enter the event title" required 
+            class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+    </div>
+    <div>
+        <label for="image" class="block font-semibold text-gray-700">Title</label>
+        <input type="file"  name="image" placeholder="Enter the event title" required 
             class="w-full mt-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none" />
     </div>
 

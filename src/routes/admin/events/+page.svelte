@@ -2,7 +2,7 @@
     import { enhance } from '$app/forms';
     import { slide } from 'svelte/transition';
     import { put } from "@vercel/blob";
-    import {BLOB_READ_WRITE_TOKEN} from '$env/static/private';
+
 
     let { data } = $props();
 </script>
@@ -15,6 +15,7 @@
 
 <div class="space-y-6 mt-6">
     {#each data.events as event (event.id)}
+    <img src={event.image} alt="">
         <div class="max-w-xl mx-auto p-5 bg-white border border-gray-300 rounded-lg shadow-sm transition hover:shadow-md" transition:slide>
             <p class="text-lg font-semibold text-gray-800">
                 {event.title} <span class="text-gray-500 italic">({event.locationName})</span>
