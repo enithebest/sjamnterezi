@@ -11,7 +11,7 @@
         <h1 class="text-xl font-bold text-center text-gray-700">Login</h1>
 
         <div class="flex flex-col gap-2">
-            <label for="email" class="text-sm font-semibold text-gray-700">E-Mail</label>
+            <label for="email" class="text-sm font-semibold text-gray-700">E Mail</label>
             <input type="email" name="email" id="email" required 
                 placeholder="Enter your email"
                 class="p-2 text-sm border border-gray-300 rounded focus:border-blue-400 focus:ring-1 focus:ring-blue-400 outline-none" />
