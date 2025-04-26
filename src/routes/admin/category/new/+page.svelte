@@ -4,5 +4,5 @@
 	<input type="text" placeholder="Title" name="title" />
 	<label for="description">Description</label>
 	<textarea placeholder="Description" name="description"></textarea>
-	<button type="submit"> create Event</button>
+	<button type="submit"> create new Category</button>
 </form>
